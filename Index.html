@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Артём и Ко - Фитнес и Тренировки</title>
+ <style>
+ :root {
+ --primary: #ff3e00;
+ --dark: #111;
+ --light: #f4f4f4;
+ --white: #fff;
+ }
+
+ body {
+ margin: 0;
+ font-family: 'Montserrat', sans-serif;
+ color: var(--dark);
+ background: var(--white);
+ }
+
+ header {
+ position: fixed;
+ width: 100%;
+ background: rgba(17, 17, 17, 0.95);
+ padding: 20px 0;
+ z-index: 1000;
+ }
+
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 20px;
+ }
+
+ .logo {
+ color: var(--white);
+ font-weight: 700;
+ font-size: 24px;
+ text-transform: uppercase;
+ }
+
+ .nav-links a {
+ color: var(--white);
+ text-decoration: none;
+ margin-left: 30px;
+ font-weight: 600;
+ transition: color 0.3s;
+ }
+
+ .nav-links a:hover {
+ color: var(--primary);
+ }
+
+ .hero {
+ height: 100vh;
+ background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1500') no-repeat center center/cover;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ color: var(--white);
+ }
+
+ .hero h1 {
+ font-size: 56px;
+ margin-bottom: 20px;
+ text-transform: uppercase;
+ }
+
+ .hero p {
+ font-size: 20px;
+ margin-bottom: 40px;
+ max-width: 600px;
+ }
+
+ .btn {
+ background: var(--primary);
+ color: var(--white);
+ padding: 15px 40px;
+ text-decoration: none;
+ font-weight: 700;
+ text-transform: uppercase;
+ border-radius: 5px;
+ transition: background 0.3s;
+ }
+
+ .btn:hover {
+ background: #e03700;
+ }
+
+ .section {
+ padding: 100px 20px;
+ max-width: 1200px;
+ margin: 0 auto;
+ }
+
+ .section-title {
+ text-align: center;
+ font-size: 40px;
+ text-transform: uppercase;
+ margin-bottom: 60px;
+ position: relative;
+ }
+
+ .section-title::after {
+ content: '';
+ display: block;
+ width: 50px;
+ height: 4px;
+ background: var(--primary);
+ margin: 15px auto 0;
+ }
+
+ .grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 40px;
+ }
+
+ .card {
+ background: var(--light);
+ padding: 40px;
+ text-align: center;
+ transition: transform 0.3s;
+ }
+
+ .card:hover {
+ transform: translateY(-10px);
+ }
+
+ .card h3 {
+ font-size: 24px;
+ margin-bottom: 15px;
+ }
+
+ .trainer-img {
+ width: 100%;
+ height: 350px;
+ object-fit: cover;
+ margin-bottom: 20px;
+ }
+ </style>
+</head>
+<body>
+
+<header>
+ <nav>
+ <div class="logo">Артём и Ко</div>
+ <div class="nav-links">
+ <a href="#programs">Направления</a>
+ <a href="#team">Команда</a>
+ <a href="#contact">Контакты</a>
+ </div>
+ </nav>
+</header>
+
+<section class="hero">
+ <div>
+ <h1>Выйди на новый уровень</h1>
+ <p>Профессиональные фитнес-программы для трансформации твоего тела и духа.</p>
+ <a href="#contact" class="btn">Записаться</a>
+ </div>
+</section>
+
+<section id="programs" class="section">
+ <h2 class="section-title">Наши направления</h2>
+ <div class="grid">
+ <div class="card">
+ Силовой тренинг
+ <p>Интенсивные программы для построения мышечной массы и развития силы.</p>
+ </div>
+ <div class="card">
+ Кардио и выносливость
+ <p>Высокоинтенсивные тренировки для сжигания калорий и укрепления сердца.</p>
+ </div>
+ <div class="card">
+ Гибкость и восстановление
+ <p>Комплексы упражнений для улучшения подвижности и снятия напряжения.</p>
+ </div>
+ </div>
+</section>
+
+<section id="team" class="section">
+ <h2 class="section-title">Наша команда</h2>
+ <div class="grid">
+ <div class="card">
+ <img src="https://images.unsplash.com/photo-1594382418932-d596489437cf?q=80&w=500" alt="Артём" class="trainer-img">
+ <h3>Артём</h3>
+ <p>Основатель и главный тренер. Специализация: функциональный тренинг и бодибилдинг.</p>
+ </div>
+ <div class="card">
+ <img src="https://images.unsplash.com/photo-1583454110551-21f2fa21018b?q=80&w=500" alt="Мария" class="trainer-img">
+ <h3>Мария</h3>
+ <p>Элитный тренер. Специализация: кардио, снижение веса и стретчинг.</p>
+ </div>
+ </div>
+</section>
+
+</body>
+</html>
+
