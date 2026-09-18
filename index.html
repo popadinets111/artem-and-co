@@ -51,6 +51,11 @@
       text-transform: uppercase;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-links a {
       color: var(--white);
       text-decoration: none;
@@ -88,7 +93,7 @@
       left: 0;
       border-radius: 5px;
       overflow: hidden;
-      margin-top: 0px;
+      margin-top: 0; /* Отступ убран, чтобы меню не пропадало */
     }
 
     .dropdown-content a {
@@ -110,6 +115,51 @@
       display: block;
     }
 
+    /* Стили мобильного меню (бургер) */
+    .menu-toggle {
+      display: none;
+      color: var(--white);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(17, 17, 17, 0.98);
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a, .dropdown {
+        margin: 15px 0;
+        margin-left: 0;
+      }
+
+      .dropdown-content {
+        position: relative;
+        box-shadow: none;
+        margin-top: 10px;
+      }
+
+      .dropdown-content a {
+        text-align: center;
+      }
+    }
+
     .hero {
       height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1500') no-repeat center center/cover;
@@ -121,6 +171,10 @@
       padding: 0 20px;
     }
 
+    .hero-content {
+      max-width: 800px;
+    }
+
     .hero h1 {
       font-size: 56px;
       margin-bottom: 20px;
@@ -130,7 +184,6 @@
     .hero p {
       font-size: 20px;
       margin-bottom: 40px;
-      max-width: 600px;
     }
 
     .btn {
@@ -144,11 +197,16 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
     }
 
     .btn:hover {
       background: #e03700;
+    }
+
+    .btn svg {
+      margin-right: 8px;
     }
 
     .section {
@@ -215,22 +273,27 @@
 </head>
 <body>
 
-<header>
-  <nav>
-    <div class="logo">Артём и Ко</div>
-    <div class="nav-links">
-      <a href="#programs">Направления</a>
-      <a href="#team">Команда</a>
-      <div class="dropdown">
-        Контакты
-        <div class="dropdown-content">
-          <a href="https://t.me/artemlovchykov" target="_blank">Telegram</a>
-          <a href="ВАША_ССЫЛКА_ДЛЯ_МАКС" target="_blank">Max</a>
+  <header>
+    <nav>
+      <div class="logo">Артём и Ко</div>
+      
+      <!-- Кнопка гамбургер для мобильных -->
+      <div class="menu-toggle" id="mobile-menu">☰</div>
+      
+      <div class="nav-links" id="nav-links">
+        <a href="#programs">Направления</a>
+        <a href="#team">Команда</a>
+        <div class="dropdown">
+          Контакты
+          <div class="dropdown-content">
+            <a href="https://t.me/artemlovchykov" target="_blank">Telegram</a>
+            <!-- Не забудьте вставить ссылку для MAX ниже -->
+            <a href="ВАША_ССЫЛКА_ДЛЯ_МАКС" target="_blank">Max</a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
 <section class="hero">
  <div>
