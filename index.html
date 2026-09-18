@@ -51,6 +51,11 @@
       text-transform: uppercase;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
     .nav-links a {
       color: var(--white);
       text-decoration: none;
@@ -88,7 +93,7 @@
       left: 0;
       border-radius: 5px;
       overflow: hidden;
-      margin-top: 0px;
+      margin-top: 0; /* Отступ убран, чтобы меню не пропадало */
     }
 
     .dropdown-content a {
@@ -110,6 +115,51 @@
       display: block;
     }
 
+    /* Стили мобильного меню (бургер) */
+    .menu-toggle {
+      display: none;
+      color: var(--white);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(17, 17, 17, 0.98);
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a, .dropdown {
+        margin: 15px 0;
+        margin-left: 0;
+      }
+
+      .dropdown-content {
+        position: relative;
+        box-shadow: none;
+        margin-top: 10px;
+      }
+
+      .dropdown-content a {
+        text-align: center;
+      }
+    }
+
     .hero {
       height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1500') no-repeat center center/cover;
@@ -121,6 +171,10 @@
       padding: 0 20px;
     }
 
+    .hero-content {
+      max-width: 800px;
+    }
+
     .hero h1 {
       font-size: 56px;
       margin-bottom: 20px;
@@ -130,7 +184,6 @@
     .hero p {
       font-size: 20px;
       margin-bottom: 40px;
-      max-width: 600px;
     }
 
     .btn {
@@ -144,11 +197,16 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
     }
 
     .btn:hover {
       background: #e03700;
+    }
+
+    .btn svg {
+      margin-right: 8px;
     }
 
     .section {
@@ -215,93 +273,101 @@
 </head>
 <body>
 
-<header>
-  <nav>
-    <div class="logo">Артём и Ко</div>
-    <div class="nav-links">
-      <a href="#programs">Направления</a>
-      <a href="#team">Команда</a>
-      <div class="dropdown">
-        Контакты
-        <div class="dropdown-content">
-          <a href="https://t.me/artemlovchykov" target="_blank">Telegram</a>
-          <a href="ВАША_ССЫЛКА_ДЛЯ_МАКС" target="_blank">Max</a>
+  <header>
+    <nav>
+      <div class="logo">Артём и Ко</div>
+      
+      <!-- Кнопка гамбургер для мобильных -->
+      <div class="menu-toggle" id="mobile-menu">☰</div>
+      
+      <div class="nav-links" id="nav-links">
+        <a href="#programs">Направления</a>
+        <a href="#team">Команда</a>
+        <div class="dropdown">
+          Контакты
+          <div class="dropdown-content">
+            <a href="https://t.me/artemlovchykov" target="_blank">Telegram</a>
+            <!-- Не забудьте вставить ссылку для MAX ниже -->
+            <a href="ВАША_ССЫЛКА_ДЛЯ_МАКС" target="_blank">Max</a>
+          </div>
         </div>
       </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Твое идеальное тело</h1>
+      <p>Присоединяйся к нашей команде и достигни своих фитнес-целей вместе с профессионалами.</p>
+      
+      <!-- Блок с двумя кнопками -->
+      <div class="btn-group" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
+        <a href="https://t.me/artemlovchykov" class="btn" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m22 2-11 11"></path>
+            <path d="M22 2 15 22l-4-9-9-4 20-7z"></path>
+          </svg>
+          Записаться в Telegram
+        </a>
+        
+        <!-- Не забудьте вставить ссылку для MAX ниже -->
+        <a href="ВАША_ССЫЛКА_ДЛЯ_МАКС" class="btn" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Записаться в Max
+        </a>
+      </div>
     </div>
-  </nav>
-</header>
+  </section>
 
-<section class="hero">
- <div>
- <h1>Выйди на новый уровень</h1>
- <p>Профессиональные фитнес-программы для трансформации твоего тела и духа.</p>
-<div class="btn-group" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
-  <!-- Кнопка Telegram -->
-  <a href="https://t.me/artemlovchykov" class="btn" target="_blank" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;">
-      <path d="m22 2-11 11"></path>
-      <path d="M22 2 15 22l-4-9-9-4 20-7z"></path>
-    </svg>
-    Записаться в Telegram
-  </a>
-
- <!-- Кнопка Max -->
-  <a href="ВАША_ССЫЛКА_ДЛЯ_МАКС" class="btn" target="_blank" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px;">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-    </svg>
-    Записаться в Max
-  </a>
-</div>
-</section>
-
-<section id="programs" class="section">
-  <h2 class="section-title">Наши направления</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="1.jpg" alt="Стретчинг" class="trainer-img">
-      <h3>Стретчинг</h3>
-      <p>Комплекс упражнений для повышения гибкости, улучшения подвижности суставов и снятия мышечного напряжения.
-       Тренировки на растяжку подходят почти всем: их можно делать дома, 
-       в зале или даже в офисе, а продолжительность варьируется от 10 минут до часа.</p>
+  <section id="programs" class="section">
+    <h2 class="section-title">Направления</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Силовые тренировки</h3>
+        <p>Набор мышечной массы и увеличение силы.</p>
+      </div>
+      <div class="card">
+        <h3>Кардио</h3>
+        <p>Жиросжигание и развитие выносливости.</p>
+      </div>
+      <div class="card">
+        <h3>Растяжка</h3>
+        <p>Гибкость, здоровье суставов и расслабление.</p>
+      </div>
     </div>
-    <div class="card">
-      <img src="3.jpg" alt="Силовые тренировки " class="trainer-img">
-      <h3>Силовые тренировки </h3>
-      <p>Занятия, где мышцы работают против сопротивления: собственного веса, гантелей,резинок,
-       тренажёров или других отягощений. Их главная задача — сделать мышцы сильнее, выносливее иобъёмнее,
-       а тело — крепче и устойчивее. На наших онлайн‑занятиях вы будете выполнять продуманные комплексы 
-       упражнений с понятной техникой:тренер покажет каждое движение, поправит ошибки в реальном времени и 
-       подберёт нагрузку так, чтобы прогрессбыл стабильным и безопасным.
-</p>
-    </div>
-    <div class="card">
-      <img src="4.jpg" alt="Функциональные тренировки" class="trainer-img">
-      <h3>Функциональные тренировки</h3>
-      <p>Занятия, которые развивают силу, выносливость, координацию и гибкостьчерез движения, близкие к повседневным: 
-       приседания, наклоны, тяги, прыжки, переносы веса. 
-       Их главнаяцель — сделать тело устойчивым и эффективным в реальной жизни, а не просто накачать отдельные мышцы.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="team" class="section">
- <h2 class="section-title">Наша команда</h2>
- <div class="grid">
- <div class="card">
- <img src="https://images.unsplash.com/photo-1594382418932-d596489437cf?q=80&w=500" alt="Артём" class="trainer-img">
- <h3>Артём</h3>
- <p>Основатель и главный тренер. Специализация: функциональный тренинг, кардио и стретчинг.</p>
- </div>
- <div class="card">
- <img src="https://images.unsplash.com/photo-1583454110551-21f2fa21018b?q=80&w=500" alt="Марго" class="trainer-img">
- <h3>Марго</h3>
- <p>Элитный тренер. Специализация: кардио и снижение веса .</p>
- </div>
- </div>
-</section>
+  <section id="team" class="section">
+    <h2 class="section-title">Наша команда</h2>
+    <div class="grid">
+      <div class="card">
+        <!-- Здесь используется локальное фото 2.jpg из вашего репозитория -->
+        <img src="2.jpg" alt="Тренер Артём" class="trainer-img" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop'">
+        <h3>Артём</h3>
+        <p>Главный тренер. Специалист по силовым тренировкам.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1470&auto=format&fit=crop" alt="Тренер 2" class="trainer-img">
+        <h3>Макс</h3>
+        <p>Специалист по кроссфиту и функциональному тренингу.</p>
+      </div>
+    </div>
+  </section>
 
+  <footer>
+    <p>&copy; 2024 Артём и Ко. Все права защищены.</p>
+  </footer>
+
+  <!-- Скрипт для работы мобильного меню -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
-
